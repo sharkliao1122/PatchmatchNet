@@ -3,6 +3,7 @@ official source code of paper 'PatchmatchNet: Learned Multi-View Patchmatch Ster
 ![](imgs/structure_teaser.jpg)
 
 ## Updates
+- 19.09.2025: Introducing a new [MVS pipeline](https://github.com/cvg/diffmvs), which is more efficient in GPU memory and run-time, and performs much better than PatchmatchNet. 
 - 19.05.2025: For those who want to reproduce the same results as our paper, please have a look at [this version](https://github.com/FangjinhuaWang/PatchmatchNet/tree/c6d2dce962be8109779afcdb3b79880d35ff9c83). The current checkpoint is re-trained by other contributors. 
 - 13.12.2021: New unified format for training and evaluation datasets, support for arbitrary image sizes
   and multi-camera setups, and new names for script parameters.
@@ -130,8 +131,8 @@ python colmap_input.py --input_folder COLMAP/dense/
   parameter, and uncomment the evaluation command. Test on GPU by running `sh eval.sh`.
 
 ## Training
-Download pre-processed [DTU's training set](https://polybox.ethz.ch/index.php/s/ugDdJQIuZTk4S35). The dataset is already
-organized as follows:
+Dowload the preprocessed [DTU training data](https://drive.google.com/file/d/1eDjh-_bxKKnEuz5h-HXS7EDJn59clx6V/view)
+ and [depths maps](https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/cascade-stereo/CasMVSNet/dtu_data/dtu_train_hr/Depths_raw.zip), upzip them and organize them as follows:
 ```
 root_directory
 ├── Cameras_1
