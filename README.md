@@ -131,8 +131,7 @@ python colmap_input.py --input_folder COLMAP/dense/
   parameter, and uncomment the evaluation command. Test on GPU by running `sh eval.sh`.
 
 ## Training
-Dowload the preprocessed [DTU training data](https://drive.google.com/file/d/1eDjh-_bxKKnEuz5h-HXS7EDJn59clx6V/view)
- and [depths maps](https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/cascade-stereo/CasMVSNet/dtu_data/dtu_train_hr/Depths_raw.zip), upzip them and organize them as follows:
+Dowload the preprocessed [DTU training data](https://drive.google.com/file/d/1eDjh-_bxKKnEuz5h-HXS7EDJn59clx6V/view), [depths maps](https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/cascade-stereo/CasMVSNet/dtu_data/dtu_train_hr/Depths_raw.zip), and [processed camera parameters](https://drive.google.com/file/d/14w85GgWY-i-vQK32TpYEVCYgDdwKRLLJ/view?usp=sharing), upzip them and organize them as follows:
 ```
 root_directory
 ├── Cameras_1
