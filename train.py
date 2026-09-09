@@ -8,7 +8,7 @@ import torch.nn.functional as F
 import torch.nn.parallel
 from torch.optim import Optimizer
 from torch.utils.data import DataLoader
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 from datasets.mvs import MVSDataset
 from models import PatchmatchNet, patchmatchnet_loss
@@ -180,10 +180,12 @@ def create_stage_images(image: torch.Tensor) -> List[torch.Tensor]:
     ]
 
 
-def find_latest_checkpoint(path: str) -> str:
+def find_latest_checkpoint(path: str) -> Optional[str]:
+    os.makedirs(path, exist_ok=True)
+
     saved_models = [fn for fn in os.listdir(path) if fn.endswith(".ckpt")]
     if len(saved_models) == 0:
-        return ""
+        return None
 
     saved_models = sorted(saved_models, key=lambda x: int(x.split("_")[-1].split(".")[0]))
     return os.path.join(path, saved_models[-1])
@@ -286,7 +288,9 @@ if __name__ == "__main__":
 
     # If no checkpoint is provided, then use the latest if it exists
     if not input_args.checkpoint_path:
-        input_args.checkpoint_path = find_latest_checkpoint(input_args.output_folder)
+        latest_checkpoint = find_latest_checkpoint(input_args.output_folder)
+        if latest_checkpoint is not None:
+            input_args.checkpoint_path = latest_checkpoint
 
     if input_args.mode == "train":
         epoch_start = 0
