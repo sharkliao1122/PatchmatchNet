@@ -1,0 +1,18 @@
+conda activate patchmatch_net
+cd /d C:\Users\T3USER\research\PatchmatchNet
+
+python train.py ^
+  --mode train ^
+  --input_folder "C:\Users\T3USER\research\data\dtu_training" ^
+  --output_folder "C:\Users\T3USER\research\output\20260910_test_1" ^
+  --train_list "lists\dtu\train.txt" ^
+  --test_list "lists\dtu\val.txt" ^
+  --num_light_idx 7 ^
+  --num_views 5 ^
+  --image_max_dim 640 ^
+  --batch_size 2 ^
+  --epochs 8 ^
+  --learning_rate 0.001 ^
+  --lr_epochs "10,12,14:2" ^
+  --save_freq 1 ^
+  --summary_freq 20
